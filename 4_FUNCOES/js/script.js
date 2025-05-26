@@ -109,9 +109,6 @@ function someFunction() {
 someFunction();
 
 //  10 - mais obre closure
-const multiplicationClosure = (n) => {
-
-}
 
 // 11 - recursion
 const untilTen = (n, m) => {
@@ -125,3 +122,48 @@ const untilTen = (n, m) => {
     }
 }
 untilTen(100, 7);
+
+// CLOSURE (REVISÃO MINHA)
+// 1 - Função que "lembra uma variável"
+function saudacao (nome) {
+    return function() {
+        console.log(`Olá, ${nome}`);
+    };
+}
+let ola = saudacao("João");
+ola();
+
+// 2 - Contador
+function criarContador() {
+    let contador = 0;
+
+    return function() {
+        contador++;
+        console.log(contador);
+    };
+}
+let contar = criarContador();
+contar();
+contar();
+contar();
+
+// 3 - Função que soma com valor fixo
+function somador(x) {
+    return function(y){
+        return x + y;
+    };
+}
+let soma10 = somador(10);
+console.log(soma10(11));
+console.log(soma10(10));
+
+// 4 - Função que guarda configuração
+function configurarSaudacao(saudacao) {
+    return function(nome) {
+        console.log(`${saudacao}, ${nome}`);
+    };
+}
+let oi = configurarSaudacao("Oi");
+let bomdia = configurarSaudacao("Bom dia");
+oi("Ana");
+bomdia("Luiz");
