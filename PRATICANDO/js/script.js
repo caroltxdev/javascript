@@ -103,3 +103,41 @@ console.log(contar());
 console.log(contar());
 console.log(contar());
 console.log(contar());
+
+// Arrow- Crie uma função arrow chamada saudar que receba um nome como parâmetro e retorne a frase:"Olá, [nome]!"
+const saudar = nome => console.log (`Olá, ${nome}!`);
+console.log(saudar("Lili"));
+
+// Closure- Crie uma função criarContador que usa closure para manter a contagem.Cada vez que a função retornada for chamada, ela deve incrementar +1 e retornar o valor atualizado.
+function criarContador() {
+    let contador = 0;
+    return function(){
+        contador++
+        return contador;
+    };
+}
+const resultado = criarContador();
+console.log(resultado());
+console.log(resultado());
+console.log(resultado());
+console.log(resultado());
+
+// Recursão- Crie uma função recursiva chamada contagemRegressiva(n) que exiba os números de n até 1 no console.
+function contagemRegressiva(n) {
+    if(n === 0) return;
+        console.log(n);
+        contagemRegressiva(n - 1);
+    }
+contagemRegressiva(5);
+
+// Closure com arrow- Crie uma função arrow chamada multiplicador(fator) que retorna outra função.A função retornada deve receber um número e retornar o resultado da multiplicação com o fator.
+const multiplicador = fator => numero => numero * fator;
+const dobrar = multiplicador(2);
+console.log(dobrar(5));
+
+// Recursão- Crie uma função recursiva somaAte(n) que receba um número n e retorne a soma de todos os números de 1 até n.
+function somaAte(n) {
+    if(n === 1) return 1;
+    return n + somaAte(n - 1);
+}
+console.log(somaAte(10));
